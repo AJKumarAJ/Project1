@@ -1,0 +1,182 @@
+<% include partials/header.ejs %>
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="http://jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+<script src="http://jonthornton.github.io/jquery-timepicker/jquery.timepicker.js"></script> -->
+
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    <!--
+		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+	-->
+	<div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="/dashboard" class="simple-text">
+                    Node EJS
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="/dashboard">
+                        <i class="ti-panel"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/profile">
+                        <i class="ti-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                 
+                <li>
+                    <a href="/tasks">
+                        <i class="ti-text"></i>
+                        <p>Events</p>
+                    </a>
+                </li>
+                 <li class="active">
+                    <a href="/events_log">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Log</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Logout</p>
+                    </a>
+                </li>
+               <!-- <li>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Icons</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="maps.html">
+                        <i class="ti-map"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="ti-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li> -->
+				
+            </ul>
+    	</div>
+    	
+    </div>
+
+    <div class="main-panel">
+		
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                   <div class="col-lg-8 col-md-5">
+                        
+                       
+                    </div>  
+                    <div class="col-lg-8 col-md-7">
+                       
+                    </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="card">
+                    <div class="header">
+                         <h4 class="title">Event Log</h4>
+                        <p class="category">Your Completed Event Log History</p>
+                    </div>
+                    <div class="content">
+                      <% if(event_log){ %>
+                       <table class="table table-striped">
+                          <thead>
+                              <th>#</th>
+                              <th>Name</th>
+                              <th>Description</th>
+                              <th>Started Time</th>
+                              <th>Completion Time</th>
+                          </thead>
+                          
+                          <tbody>
+                           <% for (var i =0; i< event_log.length; i++){ %>
+                              <tr>
+                                  <td><%= i+1 %></td>
+                                  <td><%= event_log[i].event_name %></td>
+                                  <td><%= event_log[i].event_description %></td>
+                                  <td><%= event_log[i].start_time %></td>
+                                  <td><%= event_log[i].end_time %></td>
+                              </tr>
+                            <% } %>  
+                          </tbody>   
+                        </table> 
+                      <% } %>
+                     </div>
+                   </div>
+                </div> 
+           </div>
+      </div>
+
+
+        <footer class="footer">
+           <!--  <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+
+                        <li>
+                            <a href="http://www.creative-tim.com">
+                                Creative Tim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.creative-tim.com">
+                               Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.creative-tim.com/license">
+                                Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+				<div class="copyright pull-right">
+                    &copy; <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>
+                </div>
+            </div> -->
+        </footer>
+
+    </div>
+</di  v>
+
+
+</body>
+
+     <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+        <script>
+          var OneSignal = window.OneSignal || [];
+          OneSignal.push(function() {
+            OneSignal.init({
+              appId: "715b9ced-15c4-4ff8-acd5-d6642f3b8e13",
+            });
+          });
+        </script>
+  
+
+</html>
+
+<% include partials/footer.ejs %>
